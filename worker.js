@@ -14,7 +14,7 @@
         path === '/health') {
       
       const backendUrl = BACKEND_ORIGIN + path + url.search;
-      console.log(🔄 Backend Request: );
+      console.log(`🔄 Backend Request: ${path}`);
       
       return fetch(backendUrl, {
         method: request.method,
@@ -26,7 +26,7 @@
     // FRONTEND ROUTES - Everything else goes to Netlify
     try {
       const frontendUrl = FRONTEND_ORIGIN + path + url.search;
-      console.log(🌐 Frontend Request:  -> );
+      console.log(`🌐 Frontend Request: ${path} -> ${frontendUrl}`);
       
       const response = await fetch(frontendUrl, {
         method: request.method,
@@ -47,7 +47,7 @@
     } catch (error) {
       console.error('Frontend connection error:', error);
       
-      return new Response(
+      return new Response(`
         <!DOCTYPE html>
         <html>
           <head><title>EukExpress - Temporarily Unavailable</title></head>
@@ -57,7 +57,7 @@
             <p><a href="/">Return to Home</a></p>
           </body>
         </html>
-      , {
+      `, {
         status: 503,
         headers: { 'Content-Type': 'text/html' }
       });
