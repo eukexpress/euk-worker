@@ -1,8 +1,14 @@
 # src/index.py
-from js import Response, fetch
+from js import Response, fetch  # type: ignore
 import json
+from typing import Any, Dict
 
-async def on_fetch(request):
+# These are provided by Cloudflare Workers environment
+# The type ignores tell Pylance to ignore the missing imports
+FRONTEND_ORIGIN: str = ""  # Will be injected by Cloudflare
+BACKEND_ORIGIN: str = ""   # Will be injected by Cloudflare
+
+async def on_fetch(request: Any) -> Response:
     url = request.url
     path = url.pathname
     

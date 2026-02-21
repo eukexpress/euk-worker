@@ -1,7 +1,15 @@
 [project]
 name = "eukexpress-worker"
 version = "1.0.0"
-description = "EukExpress Cloudflare Worker for routing"
+description = "EukExpress Cloudflare Worker"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = []
+
+[tool.pyright]
+typeCheckingMode = "basic"
+reportMissingImports = false
+reportUndefinedVariable = false
+
+[tool.pylint]
+py-version = "3.11"
