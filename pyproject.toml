@@ -1,0 +1,7 @@
+[project]
+name = "eukexpress-worker"
+version = "1.0.0"
+description = "EukExpress Cloudflare Worker for routing"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
